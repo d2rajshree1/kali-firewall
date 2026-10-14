@@ -1,0 +1,20 @@
+    1  mkdir -p ~/firewall-task/screenshots\ncd ~/firewall-task\nip a                      # note your Kali IP (e.g. 192.168.1.50)
+    2  sudo apt update\nsudo apt install ufw openssh-server netcat-traditional nmap telnet -y
+    3  sudo ufw status verbose
+    4  sudo ufw status verbose | tee 01-original-state.txt\nsudo iptables -L -n | tee -a 01-original-state.txt
+    5  sudo ufw status numbered
+    6  sudo ufw disable\nsudo ufw reset
+    7  sudo ufw status verbose | tee ~/firewall-task/01-original-state.txt\nsudo iptables -L -n | tee -a ~/firewall-task/01-original-state.txt
+    8  sudo ufw status verbose
+    9  sudo ufw status verbose | tee 01-original-state.txt\nsudo iptables -L -n | tee -a 01-original-state.txt
+   10  sudo ufw default deny incoming\nsudo ufw default allow outgoing
+   11  sudo systemctl enable --now ssh\nsudo ufw allow 22/tcp
+   12  sudo ufw enable\nsudo ufw logging on
+   13  sudo ufw status verbose\nsudo ufw status numbered
+   14  sudo ufw allow 23/tcp
+   15  sudo ufw delete allow 23/tcp\nsudo ufw deny 23/tcp\nsudo ufw status numbered
+   16  sudo journalctl -k | grep "UFW BLOCK" | tail -5
+   17  sudo ufw logging on
+   18  cd ~/firewall-task\nsudo ufw status verbose > ufw-rules-final.txt\nsudo cp /etc/ufw/user.rules user.rules\nsudo cp /etc/ufw/user6.rules user6.rules\nsudo iptables -L ufw-user-input -n --line-numbers > iptables-ufw-input.txt
+   19  sudo ufw status numbered\nsudo ufw delete deny 23/tcp\nsudo ufw status numbered
+   20  sudo ufw disable\nsudo ufw status | tee ~/firewall-task/09-restored-state.txt

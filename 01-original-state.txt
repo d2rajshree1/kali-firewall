@@ -1,0 +1,81 @@
+Status: inactive
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+ufw-before-logging-input  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-before-input  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-after-input  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-after-logging-input  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-reject-input  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-track-input  all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+ufw-before-logging-forward  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-before-forward  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-after-forward  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-after-logging-forward  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-reject-forward  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-track-forward  all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+ufw-before-logging-output  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-before-output  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-after-output  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-after-logging-output  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-reject-output  all  --  0.0.0.0/0            0.0.0.0/0           
+ufw-track-output  all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain ufw-after-forward (1 references)
+target     prot opt source               destination         
+
+Chain ufw-after-input (1 references)
+target     prot opt source               destination         
+
+Chain ufw-after-logging-forward (1 references)
+target     prot opt source               destination         
+
+Chain ufw-after-logging-input (1 references)
+target     prot opt source               destination         
+
+Chain ufw-after-logging-output (1 references)
+target     prot opt source               destination         
+
+Chain ufw-after-output (1 references)
+target     prot opt source               destination         
+
+Chain ufw-before-forward (1 references)
+target     prot opt source               destination         
+
+Chain ufw-before-input (1 references)
+target     prot opt source               destination         
+
+Chain ufw-before-logging-forward (1 references)
+target     prot opt source               destination         
+
+Chain ufw-before-logging-input (1 references)
+target     prot opt source               destination         
+
+Chain ufw-before-logging-output (1 references)
+target     prot opt source               destination         
+
+Chain ufw-before-output (1 references)
+target     prot opt source               destination         
+
+Chain ufw-reject-forward (1 references)
+target     prot opt source               destination         
+
+Chain ufw-reject-input (1 references)
+target     prot opt source               destination         
+
+Chain ufw-reject-output (1 references)
+target     prot opt source               destination         
+
+Chain ufw-track-forward (1 references)
+target     prot opt source               destination         
+
+Chain ufw-track-input (1 references)
+target     prot opt source               destination         
+
+Chain ufw-track-output (1 references)
+target     prot opt source               destination         
